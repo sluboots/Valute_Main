@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Valute_Main.MainPage"
+             x:DataType="viewModels:MainPageViewModel"
+             xmlns:viewModels="clr-namespace:Valute_Main.ViewModels;assembly=Valute_Main">
+
+
+    <StackLayout    Margin="0" Padding="10" BackgroundColor="white" >
+
+
+        <Frame BackgroundColor="white" 
+                   CornerRadius="15"
+                   >
+
+            <StackLayout>
+                <Label Text="Выберите валюту № 1" TextColor ="Black"></Label>
+                <Frame Padding="3" CornerRadius="15" HasShadow="True">
+                    <Picker ItemsSource="{Binding Valutes}"
+                ItemDisplayBinding="{Binding ValuteName}"
+                SelectedItem="{Binding SelectedValuteInput}" />
+                </Frame>
+                <Label Text="{Binding SelectedValuteInput.CharCode}" />
+                <Label Text="Введите сумму" TextColor ="Black"></Label>
+                <Frame Padding="15" CornerRadius="15" HasShadow="True">
+                    <Entry Keyboard="Numeric" Text="{Binding InputValue}" TextChanged="OnTextChanged" ></Entry>
+                </Frame>
+
+                <Label Text="Выберите валюту № 2" TextColor ="Black"></Label>
+                <Frame Padding="15" CornerRadius="15" HasShadow="True">
+                    <Picker ItemsSource="{Binding Valutes}"
+                ItemDisplayBinding="{Binding ValuteName}"
+                SelectedItem="{Binding SelectedValuteResult}" />
+                </Frame>
+                <Label Text="{Binding SelectedValuteResult.CharCode}" />
+                <Label Text="Введите сумму" TextColor ="Black"></Label>
+                <Frame Padding="10" CornerRadius="15" HasShadow="True">
+                    <Entry Keyboard="Numeric" Text="{Binding ResultValue}" TextChanged="OnTextChanged" ></Entry>
+                </Frame>
+
+                <Label Text="Выберите дату:" FontSize="19" TextColor ="Black"/>
+                <Frame Padding="10" CornerRadius="15" HasShadow="True">
+
+                    <!--<Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,0">
+                        <GradientStop Color="#85B0F2" 
+                          Offset="0.0"/>
+                        <GradientStop Color="#00DDCF" 
+                          Offset="0.5"/>
+                        <GradientStop Color="#EDE067" 
+                          Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>-->
+                    <DatePicker Format="dd MM yyyy" DateSelected="OnDateSelected"  HorizontalOptions="Center"   VerticalOptions="Center" MinimumDate ="{Binding PropertyMinimumDate}"
+                MaximumDate = "{Binding PropertyMaximumDate}" >
+                        <!--<DatePicker.MinimumDate>01/12/2020</DatePicker.MinimumDate>-->
+                    </DatePicker>
+
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
