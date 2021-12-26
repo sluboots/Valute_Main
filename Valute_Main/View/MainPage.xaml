@@ -54,7 +54,7 @@
                 </Frame.Background>-->
                     <DatePicker Format="dd MM yyyy" DateSelected="OnDateSelected"  HorizontalOptions="Center"   VerticalOptions="Center" MinimumDate ="{Binding PropertyMinimumDate}"
                 MaximumDate = "{Binding PropertyMaximumDate}" >
-                        <!--<DatePicker.MinimumDate>01/12/2020</DatePicker.MinimumDate>-->
+                       
                     </DatePicker>
 
                 </Frame>
